@@ -1,0 +1,103 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  test:
+    environment:
+      BUNDLE_GEMFILE: Gemfile
+      BUNDLE_WITHOUT: "production:staging:development"
+
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.5.1-node
+        environment:
+          RAILS_ENV: test
+          RACK_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: ubuntu
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      - image: circleci/postgres:alpine
+        environment:
+          POSTGRES_USER: ubuntu
+          POSTGRES_DB: react-rails-5-starterkit_test
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - gems-v1-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          - gems-v1-{{ .Branch }}-
+          - gems-v1-
+
+      - run:
+          name: Bundle install
+          command: bundle check --path vendor/bundle || bundle install --deployment --jobs=4 --retry=3
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: gems-v1-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+
+      - restore_cache:
+          keys:
+            - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-v1-{{ .Branch }}-
+            - yarn-packages-v1-
+
+      - run:
+          name: Yarn install
+          command: yarn install
+
+      - save_cache:
+          paths:
+            - ~/.cache/yarn
+          key: yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+      - run: bundle exec rake test
+      - run: yarn test
+
+  lint:
+    docker:
+      - image: circleci/ruby:2.5.1-node
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - yarn-packages-v1-{{ .Branch }}-
+            - yarn-packages-v1-
+
+      - run:
+          name: Yarn install
+          command: yarn install
+
+      - save_cache:
+          paths:
+            - ~/.cache/yarn
+          key: yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+      - run: bin/yarn lint
+
+workflows:
+  version: 2
+  release:
+    jobs:
+      - test
+      - lint:
+          filters:
+            branches:
+              ignore: /^(master|production|staging)$/
+          requires:
+            - test
