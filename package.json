@@ -2,7 +2,8 @@
   "name": "react-rails-5-starterkit",
   "private": true,
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "tslint 'app/**/*.{ts,tsx}' 'test/javascript/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@rails/webpacker": "4.0.0-pre.2",
