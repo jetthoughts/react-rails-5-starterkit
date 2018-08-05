@@ -2,7 +2,7 @@
   "name": "react-rails-5-starterkit",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5",
+    "@rails/webpacker": "4.0.0-pre.2",
     "babel-preset-react": "^6.24.1",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
