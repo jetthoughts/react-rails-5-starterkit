@@ -55,11 +55,11 @@ module.exports = {
   // globalTeardown: null,
 
   // A set of global variables that need to be available in all test environments
-  globals: {
-    "ts-jest": {
-      "tsConfigFile": "tsconfig.json"
-    }
-  },
+  // globals: {
+  //   "ts-jest": {
+  //     "tsConfigFile": "tsconfig.json"
+  //   }
+  // },
 
   // An array of directory names to be searched recursively up from the requiring module's location
   // moduleDirectories: [
@@ -74,7 +74,9 @@ module.exports = {
   ],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    "Javascript(.*)$": "<rootDir>/app/javascript/$1"
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -137,7 +139,7 @@ module.exports = {
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    "**/__tests__/*.+(ts|tsx|js)"
+    "**/test/javascript/*.+(ts|tsx|js)"
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
@@ -162,7 +164,7 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest"
+    "^.+\\.tsx?$": "ts-jest"
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
