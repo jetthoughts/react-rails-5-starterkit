@@ -14,10 +14,10 @@ Rails application boilerplate based on [React](https://reactjs.org/), [Typescrip
 
 ### Core
 
-- [Ruby on Rails](https://rubyonrails.org/)
-- [React.js](https://reactjs.org/)
-- [Typescript](https://www.typescriptlang.org/)
-- [Webpacker](https://github.com/rails/webpacker)
+- [Ruby on Rails](https://rubyonrails.org/) 5.2.x
+- [React.js](https://reactjs.org/) 16.x
+- [Typescript](https://www.typescriptlang.org/) 3.x
+- [Webpacker](https://github.com/rails/webpacker) 4.x
 
 ### System
 
