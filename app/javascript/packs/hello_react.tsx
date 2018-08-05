@@ -5,7 +5,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 
-import { default as App } from '../app'
+import { App } from '../app'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(

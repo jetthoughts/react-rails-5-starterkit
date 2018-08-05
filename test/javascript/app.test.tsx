@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as renderer from 'react-test-renderer'
 
-import { default as App } from 'Javascript/app'
+import { App } from 'Javascript/app'
 
 it('renders app component with a custom name', () => {
   const component = renderer.create(<App name={'Dmitriy'}/>)

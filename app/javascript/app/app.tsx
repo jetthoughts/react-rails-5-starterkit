@@ -1,11 +1,12 @@
 import * as React from 'react'
+import './app.scss'
 
 interface AppProps {
   name: string
 }
 
 const App: React.SFC<AppProps> = (props) => (
-  <div>Hello {props.name}!</div>
+  <p>Hello {props.name}!</p>
 )
 
 App.defaultProps = {

@@ -75,6 +75,7 @@ module.exports = {
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
   moduleNameMapper: {
+    ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy",
     "Javascript(.*)$": "<rootDir>/app/javascript/$1"
   },
 

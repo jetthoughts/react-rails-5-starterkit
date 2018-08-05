@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders app component with a custom name 1`] = `
-<div>
+<p>
   Hello 
   Dmitriy
   !
-</div>
+</p>
 `;
 
 exports[`renders app component with a default name 1`] = `
-<div>
+<p>
   Hello 
   David
   !
-</div>
+</p>
 `;
