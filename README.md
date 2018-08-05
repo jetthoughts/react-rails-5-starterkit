@@ -1,24 +1,59 @@
-# README
+# React Rails boilerplate
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![CircleCI](https://circleci.com/gh/jetthoughts/react-rails-5-starterkit.svg?style=svg)](https://circleci.com/gh/jetthoughts/react-rails-5-starterkit)
 
-Things you may want to cover:
+Rails application boilerplate based on [React](https://reactjs.org/), [Typescript](https://www.typescriptlang.org/),
+[Webpack](https://webpack.js.org/) for rapid application development.
 
-* Ruby version
+## Table of Contents
 
-* System dependencies
+- [Tech Stack](#tech-stack)
+- [Commands](#commands)
 
-* Configuration
+## Tech Stack
 
-* Database creation
+### Core
 
-* Database initialization
+- [Ruby on Rails](https://rubyonrails.org/)
+- [React.js](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Webpacker](https://github.com/rails/webpacker)
 
-* How to run the test suite
+### System
 
-* Services (job queues, cache servers, search engines, etc.)
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/en/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 
-* Deployment instructions
+### Testing
 
-* ...
+- [Jest](http://facebook.github.io/jest/)
+- [MiniTest](https://guides.rubyonrails.org/testing.html)
+
+### Linting
+
+- [TSLint](https://palantir.github.io/tslint/)
+
+### Integrations
+
+- [CircleCI](https://circleci.com/)
+- [Heroku](https://www.heroku.com/)
+
+## Commands
+
+### Testing
+
+```Shell
+yarn test
+```
+
+Tests your application with the tests specified in the `test/javascript/*.(ts|tsx)` files.
+See [Jest documentation](https://jestjs.io/docs/en/getting-started) for more detailed information.
+
+### Linting
+
+```Shell
+yarn lint
+```
+
