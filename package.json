@@ -15,7 +15,9 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
+    "@types/react-test-renderer": "^16.0.1",
     "jest": "^23.4.2",
+    "react-test-renderer": "^16.4.2",
     "ts-jest": "^23.1.2",
     "webpack-dev-server": "^3"
   }
