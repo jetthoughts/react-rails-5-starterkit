@@ -2,20 +2,14 @@
 // like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
 // of the page.
 
-import * as React from 'react'
+import * as React from "react";
 import * as ReactDOM from 'react-dom'
 
-interface Props {
-  name: string
-}
-
-const Hello = ({ name = 'David' }: Props) => (
-  <div>Hello {name}!</div>
-)
+import { default as App } from '../app'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <App name="React" />,
     document.body.appendChild(document.createElement('div')),
   )
 })
