@@ -3,7 +3,7 @@
   "env": {
     "RAILS_ENV": "staging",
     "RACK_ENV": "staging",
-    "NODE_ENV": "production",
+    "NODE_ENV": "staging",
     "BUNDLE_WITHOUT": "production:development:test",
     "DB_SEED_ON_REDEPLOY": {
       "description": "Reset database on redeploy",
