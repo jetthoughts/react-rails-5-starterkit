@@ -1,15 +1,15 @@
-import * as React from "react";
+import * as React from "react"
 
 interface AppProps {
-    name: string
+  name: string
 }
 
 const App: React.SFC<AppProps> = (props) => (
-    <div>Hello {props.name}!</div>
+  <div>Hello {props.name}!</div>
 )
 
 App.defaultProps = {
-    name: 'David',
+  name: 'David',
 }
 
 export default App
